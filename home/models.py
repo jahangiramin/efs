@@ -7,9 +7,11 @@ from django.db.models.fields.related import ForeignKey, ManyToManyField
 
 class Company(models.Model):
     name = CharField(max_length=200)
+    slug = CharField(max_length=50)
 
 class Period(models.Model):
     name = CharField(max_length=200)
+    slug = CharField(max_length=50)
     company = ForeignKey(Company)
 
 class Statement(models.Model):
