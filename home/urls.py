@@ -13,5 +13,6 @@ urlpatterns = [
     path('company/period/statement/', views.home, name='statement'), #single statement
     path('company/period/statement/fsli/', views.home, name='fsli'),
     path('company/period/statement/pov/', views.home, name='pov'),
-    path('company/period/grouping', views.home, name='grouping'),
+    path('company/period/grouping/', views.home, name='grouping'),
+    path('test/test', views.home, name='test'),
 ]
