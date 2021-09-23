@@ -12,13 +12,13 @@ class Company(models.Model):
 class Period(models.Model):
     name = CharField(max_length=200)
     slug = CharField(max_length=50)
-    company = ForeignKey(Company)
+    company = ForeignKey(Company, on_delete=CASCADE)
 
 class Statement(models.Model):
     name = CharField(max_length=200)
     alias = CharField(max_length=50)
     noteref = CharField(max_length=20)
-    period = ForeignKey(Period)
+    period = ForeignKey(Period, on_delete=CASCADE)
 
 class FSLI(models.Model):
     name = CharField(max_length=200)
@@ -40,7 +40,7 @@ class Balance(models.Model):
     grouping = ManyToManyField(Grouping)
 
 class Amount(models.Model):
-    statement = ForeignKey(Statement)
-    fsli = ForeignKey(FSLI)
-    pov = ForeignKey(POV)
-    amount = ForeignKey(Grouping)
+    statement = ForeignKey(Statement, on_delete=CASCADE)
+    fsli = ForeignKey(FSLI, on_delete=CASCADE)
+    pov = ForeignKey(POV, on_delete=CASCADE)
+    amount = ForeignKey(Grouping, on_delete=CASCADE)
